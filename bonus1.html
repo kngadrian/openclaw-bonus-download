@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bonus 01 — The AI CEO Operating System | OpenClaw Cracked</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#06060e;--bg2:#0d0d1a;--bg3:#111120;--cyan:#00d4ff;--purple:#8b5cf6;--white:#fff;--gray:#8b8fa8;--gray-light:#b4b8d0;--border:rgba(0,212,255,0.1)}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--white);line-height:1.7;overflow-x:hidden}
+    body::before{content:"";position:fixed;inset:0;background:radial-gradient(ellipse 70% 50% at 50% -5%,rgba(0,212,255,0.06) 0%,transparent 60%);pointer-events:none;z-index:0}
+    .amb{position:fixed;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0}
+    .amb1{width:600px;height:600px;background:radial-gradient(circle,rgba(0,212,255,0.06) 0%,transparent 70%);top:-200px;left:50%;transform:translateX(-50%)}
+    .amb2{width:400px;height:400px;background:radial-gradient(circle,rgba(139,92,246,0.07) 0%,transparent 70%);bottom:20%;right:-100px}
+    .container{max-width:800px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+    nav{position:sticky;top:0;z-index:100;padding:14px 24px;background:rgba(6,6,14,0.9);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:800px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+    .nav-back{font-size:14px;color:var(--cyan);text-decoration:none;display:flex;align-items:center;gap:6px;font-weight:600;transition:opacity .2s}
+    .nav-back:hover{opacity:.8}
+    .nav-brand{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--gray)}
+    .hero{padding:60px 0 48px}
+    .bonus-badge{display:inline-flex;align-items:center;gap:10px;margin-bottom:20px}
+    .bonus-num{font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);padding:4px 12px;background:rgba(0,212,255,0.08);border:1px solid rgba(0,212,255,0.2);border-radius:999px}
+    .val-badge{font-size:11px;font-weight:700;color:var(--gray);background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:999px;padding:4px 12px}
+    h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,46px);font-weight:700;letter-spacing:-1.5px;line-height:1.08;margin-bottom:16px;background:linear-gradient(135deg,#fff 0%,#c7d2fe 50%,#00d4ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero-sub{font-size:17px;color:var(--gray-light);max-width:600px;line-height:1.7;margin-bottom:36px}
+    .toc{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:24px 28px;margin-bottom:60px}
+    .toc h3{font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cyan);margin-bottom:16px}
+    .toc ol{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px}
+    .toc li{font-size:14px}
+    .toc a{color:var(--gray-light);text-decoration:none;transition:color .2s;display:flex;align-items:center;gap:8px}
+    .toc a::before{content:"";display:inline-block;width:4px;height:4px;background:var(--cyan);border-radius:50%;opacity:.6}
+    .toc a:hover{color:var(--cyan)}
+    .section{padding:60px 0;border-top:1px solid rgba(255,255,255,.05)}
+    .section:first-of-type{border-top:none}
+    .sec-tag{font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);opacity:.7;display:block;margin-bottom:10px}
+    h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(22px,3.5vw,32px);font-weight:700;letter-spacing:-.8px;margin-bottom:20px;line-height:1.15}
+    h3{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;letter-spacing:-.3px;margin:32px 0 14px;color:var(--gray-light)}
+    p{font-size:15px;color:var(--gray-light);line-height:1.75;margin-bottom:16px}
+    p:last-child{margin-bottom:0}
+    strong{color:var(--white);font-weight:600}
+    ul,ol{padding-left:0;list-style:none;margin-bottom:20px;display:flex;flex-direction:column;gap:8px}
+    ul li,ol li{font-size:15px;color:var(--gray-light);line-height:1.65;padding-left:20px;position:relative}
+    ul li::before{content:"✓";position:absolute;left:0;color:var(--cyan);font-weight:700;font-size:13px}
+    ol{counter-reset:item}
+    ol li{counter-increment:item}
+    ol li::before{content:counter(item)".";position:absolute;left:0;color:var(--cyan);font-weight:700;font-size:13px}
+    .table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px;margin:24px 0}
+    table{width:100%;border-collapse:collapse;font-size:14px}
+    th{text-align:left;padding:12px 16px;font-size:10px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--gray);background:var(--bg2);border-bottom:1px solid var(--border)}
+    td{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);color:var(--gray-light)}
+    tr:last-child td{border-bottom:none}
+    tr:hover td{background:rgba(255,255,255,0.02)}
+    td:first-child{color:var(--white);font-weight:500}
+    .code-block{background:#080815;border:1px solid rgba(0,212,255,0.12);border-radius:10px;padding:20px 22px;font-family:'Courier New',Courier,monospace;font-size:13px;line-height:1.7;color:#b4b8d0;white-space:pre-wrap;margin:20px 0;overflow-x:auto}
+    .callout{background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.15);border-left:3px solid var(--cyan);border-radius:8px;padding:16px 20px;margin:24px 0;font-size:14px;color:var(--gray-light)}
+    .tier-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:16px;position:relative;overflow:hidden}
+    .tier-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+    .tier-label{font-size:9px;font-weight:800;letter-spacing:3px;text-transform:uppercase;color:var(--cyan);margin-bottom:8px}
+    .cta-bar{background:linear-gradient(135deg,rgba(0,212,255,0.07),rgba(139,92,246,0.07));border:1px solid rgba(0,212,255,0.15);border-radius:14px;padding:36px;text-align:center;margin:60px 0}
+    .cta-bar h3{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;margin-bottom:8px}
+    .cta-bar p{font-size:14px;color:var(--gray);margin-bottom:20px}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:var(--cyan);color:#000;font-weight:800;font-size:14px;border-radius:8px;text-decoration:none;transition:opacity .2s}
+    .btn:hover{opacity:.85}
+    .btn-ghost{background:transparent;border:1px solid rgba(0,212,255,.3);color:var(--cyan);margin-right:12px}
+    .btn-ghost:hover{background:rgba(0,212,255,.08)}
+    footer{padding:32px 24px;text-align:center;font-size:12px;color:var(--gray);opacity:.4;border-top:1px solid rgba(255,255,255,.04);margin-top:80px}
+    .fade-in{opacity:0;transform:translateY(20px);transition:opacity .65s ease,transform .65s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+    @media(max-width:640px){.hero{padding:40px 0 32px}h1{font-size:28px}.cta-bar{padding:24px}}
+  </style>
+</head>
+<body>
+<div class="amb amb1"></div>
+<div class="amb amb2"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back">← Back to All Bonuses</a>
+    <div class="nav-brand">OpenClaw Cracked — Bonus Library</div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero fade-in">
+    <div class="bonus-badge">
+      <span class="bonus-num">Bonus 01</span>
+      <span class="val-badge">Value: $497</span>
+    </div>
+    <h1>The AI CEO<br/>Operating System</h1>
+    <p class="hero-sub">How to run a 35-agent org without becoming its full-time babysitter. The daily rhythms, trust frameworks, decision rules, and exact briefing template Adrian uses every day.</p>
+  </div>
+
+  <div class="toc fade-in">
+    <h3>What's Inside</h3>
+    <ol>
+      <li><a href="#section1">Section 1: The Daily CEO Review Cadence</a></li>
+      <li><a href="#section2">Section 2: The Trust/Override Framework</a></li>
+      <li><a href="#section3">Section 3: The 3 Decisions You Never Delegate</a></li>
+      <li><a href="#section4">Section 4: The Weekly Org Health Check</a></li>
+      <li><a href="#section5">Section 5: Adrian's Department Briefing Template</a></li>
+    </ol>
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section fade-in" id="section1">
+    <span class="sec-tag">Section 1</span>
+    <h2>The Daily CEO Review Cadence</h2>
+    <p>You do not need to babysit your agents. You need to know, in 15-20 minutes every morning, whether the machine is running or it isn't. Here is exactly what that looks like.</p>
+
+    <h3>What to Check Every Morning</h3>
+    <p><strong>Check these (they matter):</strong></p>
+    <ul>
+      <li>Agent outputs that touch money, brand, or customers</li>
+      <li>Any flagged escalations from the previous 24 hours</li>
+      <li>Tasks that were due yesterday and show no completion</li>
+      <li>Any cross-department dependency blocking a P0 or P1</li>
+    </ul>
+    <p><strong>Skip these (they don't need you):</strong></p>
+    <ul>
+      <li>Routine content drafts that haven't been reviewed by your CMO agent yet</li>
+      <li>Internal status updates between agents on P2/P3 tasks</li>
+      <li>First drafts of anything, operational reports without anomalies, agent activity logs with no flags</li>
+    </ul>
+
+    <h3>Time Budget</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Block</th><th>Time</th><th>What You're Doing</th></tr></thead>
+        <tbody>
+          <tr><td>Escalation scan</td><td>3 min</td><td>Read flagged items from overnight</td></tr>
+          <tr><td>Priority task status</td><td>5 min</td><td>P0 and P1 items only</td></tr>
+          <tr><td>Decision queue</td><td>5 min</td><td>Anything waiting on you specifically</td></tr>
+          <tr><td>Quick replies</td><td>5 min</td><td>One-line directives, approvals, rejections</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>~18 min</strong></td><td><strong>Done. Close it.</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>What "Good Enough" Looks Like vs What Needs You</h3>
+    <p><strong>Good enough — let it go:</strong></p>
+    <ul>
+      <li>Task is moving. Owner is active. Deadline isn't in danger.</li>
+      <li>Draft output is 80% there and going through a review cycle.</li>
+      <li>Agent made a minor judgment call you'd have made differently but it doesn't change the outcome.</li>
+    </ul>
+    <p><strong>Needs your attention:</strong></p>
+    <ul>
+      <li>Deadline is today and there's no output yet.</li>
+      <li>An agent made a decision involving money, going public, or changing direction.</li>
+      <li>Two agents are blocked on each other and neither escalated it.</li>
+      <li>Something looks done but you haven't actually seen the output.</li>
+    </ul>
+
+    <h3>Adrian's Daily Checklist</h3>
+    <div class="code-block">DAILY CEO REVIEW — [DATE]
+
+[ ] Escalations from last 24 hours: ___
+[ ] P0 tasks — status: ___
+[ ] P1 tasks — status: ___
+[ ] Decisions waiting on me: ___
+[ ] Anything due today with no output: ___
+[ ] One thing I need to unblock right now: ___
+
+Total time: ___ min</div>
+    <div class="callout">Print it. Fill it by hand. The physical act of writing forces you to actually think about each line instead of skimming.</div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section fade-in" id="section2">
+    <span class="sec-tag">Section 2</span>
+    <h2>The Trust/Override Framework</h2>
+    <p>Every agent you work with earns a tier. Here's the system I use.</p>
+
+    <h3>The 3-Tier System</h3>
+    <div class="tier-card">
+      <div class="tier-label">Tier 1</div>
+      <strong>Full Trust</strong>
+      <p style="margin-top:8px;margin-bottom:0">The agent acts. You review outcomes, not decisions.</p>
+    </div>
+    <div class="tier-card">
+      <div class="tier-label">Tier 2</div>
+      <strong>Verify Before Acting</strong>
+      <p style="margin-top:8px;margin-bottom:0">The agent prepares. You approve before anything goes live or gets spent.</p>
+    </div>
+    <div class="tier-card">
+      <div class="tier-label">Tier 3</div>
+      <strong>Always Escalate</strong>
+      <p style="margin-top:8px;margin-bottom:0">The agent flags and presents options. You decide. Every time.</p>
+    </div>
+
+    <h3>Which Tasks Go Where</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Task Type</th><th>Tier</th><th>Why</th></tr></thead>
+        <tbody>
+          <tr><td>Internal drafts, research, analysis</td><td>Full Trust</td><td>Low consequence if wrong</td></tr>
+          <tr><td>Customer-facing content</td><td>Verify</td><td>Brand risk if off</td></tr>
+          <tr><td>Outbound campaigns</td><td>Verify</td><td>Reputation on the line</td></tr>
+          <tr><td>Spending decisions</td><td>Always Escalate</td><td>Money leaving the business</td></tr>
+          <tr><td>Strategy pivots</td><td>Always Escalate</td><td>Direction changes are yours</td></tr>
+          <tr><td>Anything public</td><td>Verify or Escalate</td><td>No take-backs</td></tr>
+          <tr><td>Hiring, contracts, partnerships</td><td>Always Escalate</td><td>Legal and financial exposure</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>How to Level Agents Up from Verify to Full Trust</h3>
+    <p>Promotion is earned, not given. An agent moves up when:</p>
+    <ol>
+      <li>It has completed 10+ tasks in the verify tier with zero corrections needed.</li>
+      <li>Its output quality is consistent, not just occasionally good.</li>
+      <li>It has handled at least one unexpected situation well without defaulting to "I don't know."</li>
+      <li>You have reviewed enough of its work to predict how it handles edge cases.</li>
+    </ol>
+    <div class="callout">Start narrow. Give it Full Trust on one task type first. Watch for 30 days. Then expand.</div>
+
+    <h3>Red Flags That Always Trigger an Override</h3>
+    <p>Override the agent immediately when:</p>
+    <ul>
+      <li>It acts without being asked to act</li>
+      <li>It makes a spending decision it wasn't authorized to make</li>
+      <li>It produces output that contradicts something you've already decided</li>
+      <li>It goes public with anything without your explicit approval</li>
+      <li>It changes the scope of a task without flagging the change</li>
+      <li>Its output is inconsistent with previous work and offers no explanation</li>
+    </ul>
+    <div class="callout">One override doesn't mean the agent is broken. A pattern of the same override means it's in the wrong tier.</div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section fade-in" id="section3">
+    <span class="sec-tag">Section 3</span>
+    <h2>The 3 Decisions You Never Delegate to an Agent</h2>
+
+    <h3>Decision 1: Real Money Leaving the Business Above Pre-Set Thresholds</h3>
+    <p>An agent optimizing for results will find ways to spend. It doesn't feel the weight of cash outflow the way you do. It doesn't know your current runway, your upcoming obligations, or what a $3,000 mistake means this month specifically. It only knows the task.</p>
+    <p><strong>What can go wrong:</strong> Ad spend escalates without a human check. Vendor payments get authorized twice. Software subscriptions stack up because each one looked justified in isolation.</p>
+    <p><strong>The fix:</strong> Set hard dollar thresholds. Below the threshold, agents operate. Above it, they flag and wait. No exceptions.</p>
+
+    <h3>Decision 2: Anything Public-Facing That Could Damage the Brand</h3>
+    <p>Agents are fast. Fast is the problem here. A wrong angle on a tweet, a customer complaint handled poorly in public, a launch email that goes out before you've seen it — these aren't recoverable with a follow-up. First impressions write themselves in permanent ink.</p>
+    <p><strong>What can go wrong:</strong> An agent drafts a response to a public controversy using the wrong tone. It goes out before you review it. Screenshots live forever.</p>
+    <p><strong>The fix:</strong> Nothing customer-facing or media-facing goes live without a final human pass. Build this into the workflow, not the exception handling.</p>
+
+    <h3>Decision 3: Any Strategic Pivot</h3>
+    <p>Speed adjustments are fine. Doing the same thing faster, or pausing a campaign to optimize it — those are execution calls. Changing direction entirely is a CEO call. The agents don't have the full context of where you're going. They know the task, not the three-year picture.</p>
+    <p><strong>What can go wrong:</strong> Your CMO agent sees poor campaign performance and pivots the messaging to something that performs better short-term but contradicts your positioning. You realize six months later you've drifted off-brand.</p>
+    <p><strong>The fix:</strong> Define what counts as a pivot versus an optimization. Agents optimize. You pivot.</p>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section fade-in" id="section4">
+    <span class="sec-tag">Section 4</span>
+    <h2>The Weekly Org Health Check</h2>
+    <p>Every Monday. 15 minutes. No exceptions.</p>
+
+    <h3>5 Questions to Ask Yourself Each Week</h3>
+    <ol>
+      <li>Is every P0 and P1 task either complete or actively moving with a clear owner?</li>
+      <li>Has every department head given me at least one meaningful output this week, not just status updates?</li>
+      <li>Is anything that was Green last week now Yellow or Red, and do I know why?</li>
+      <li>Am I the bottleneck anywhere right now?</li>
+      <li>If I disappeared for 48 hours, what would break first?</li>
+    </ol>
+
+    <h3>How to Spot Agent Drift Before It Costs You</h3>
+    <p>Drift is slow. That's what makes it dangerous. Watch for:</p>
+    <ul>
+      <li>Outputs getting shorter or less specific without explanation</li>
+      <li>An agent that used to escalate is now making calls it shouldn't</li>
+      <li>Quality that was excellent two months ago that now requires significant edits</li>
+      <li>An agent solving the wrong version of the problem</li>
+    </ul>
+    <div class="callout">If you spot drift, don't wait. Recalibrate now. Drift compounds.</div>
+
+    <h3>What to Do When an Agent Is Underperforming</h3>
+    <ol>
+      <li>Pull the last 5 outputs. Find the pattern.</li>
+      <li>Identify whether it's a brief quality problem (you) or an execution problem (the agent).</li>
+      <li>If it's the brief: rewrite your templates.</li>
+      <li>If it's the agent: drop it one tier in the trust framework and re-run recent work with tighter parameters.</li>
+      <li>If it doesn't improve in 2 weeks: replace or restructure the role.</li>
+    </ol>
+
+    <h3>Weekly Org Health Check Format</h3>
+    <div class="code-block">WEEKLY ORG HEALTH — [DATE]
+
+ATLAS (CTO):      [ ] Green  [ ] Yellow  [ ] Red
+Notes: ___
+
+VALENCIA (CMO):   [ ] Green  [ ] Yellow  [ ] Red
+Notes: ___
+
+STERLING (CFO):   [ ] Green  [ ] Yellow  [ ] Red
+Notes: ___
+
+SENTINEL (COO):   [ ] Green  [ ] Yellow  [ ] Red
+Notes: ___
+
+NOVA (CPO):       [ ] Green  [ ] Yellow  [ ] Red
+Notes: ___
+
+Top bottleneck this week: ___
+One thing I'm fixing by Friday: ___</div>
+    <div class="callout">Yellow means watch it. Red means act today.</div>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section fade-in" id="section5">
+    <span class="sec-tag">Section 5</span>
+    <h2>Adrian's Department Briefing Template</h2>
+    <p>Skip a field and you will spend twice as long fixing the output. Fill it out completely and the agent does exactly what you needed.</p>
+
+    <h3>The Template</h3>
+    <div class="code-block">DEPARTMENT BRIEFING
+
+Task: [One sentence. What are you asking for?]
+Priority: [P0 / P1 / P2 / P3]
+Owner: [Which agent or department is responsible?]
+Deadline: [Specific date and time. Not "ASAP."]
+Success Criteria: [How will you know this is done correctly?]
+Output Format: [Document / Email draft / Spreadsheet / Verbal summary / etc.]
+Context: [What does the agent need to know that isn't obvious?]
+Constraints: [What should it NOT do? Any limits on scope, tone, budget?]</div>
+
+    <h3>Example Filled-In Briefing</h3>
+    <div class="code-block">DEPARTMENT BRIEFING
+
+Task: Write a 5-email welcome sequence for new CallFluent AI trial users.
+Priority: P1
+Owner: VALENCIA (CMO) via QUILL
+Deadline: Friday, March 21 by 5PM EET
+Success Criteria: Five complete email drafts, each under 300 words,
+    with subject line, preview text, and body. Emails build on each
+    other and drive toward booking a setup call by email 3.
+Output Format: Google Doc with one email per section.
+Context: Trial users have already signed up. They haven't completed
+    setup. Most churn in the first 7 days. Needs to feel personal,
+    not automated.
+Constraints: No em-dashes. No "just checking in" language.
+    No discounts in emails 1-3. Adrian's voice throughout.</div>
+
+    <h3>What Happens When You Skip Fields</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Skipped Field</th><th>What Goes Wrong</th></tr></thead>
+        <tbody>
+          <tr><td>Deadline</td><td>Agent treats it as low priority. It drifts.</td></tr>
+          <tr><td>Success Criteria</td><td>You get something technically complete that misses the point.</td></tr>
+          <tr><td>Output Format</td><td>You get a wall of text when you needed a template.</td></tr>
+          <tr><td>Constraints</td><td>The agent makes choices you didn't want and now you edit.</td></tr>
+          <tr><td>Context</td><td>The agent works from assumptions. Some are wrong.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">The brief is not overhead. The brief is the work.</div>
+  </div>
+
+  <div class="cta-bar fade-in">
+    <h3>Ready for Bonus 02?</h3>
+    <p>The AI Agency Starter Kit — everything you need to land your first client in 30 days.</p>
+    <a href="index.html" class="btn btn-ghost">← All Bonuses</a>
+    <a href="bonus2.html" class="btn">Access Bonus 02 →</a>
+  </div>
+</div>
+
+<footer>© 2026 Adrian Isfan / CallFluent AI — Exclusive bonus for OpenClaw Cracked bundle purchasers.</footer>
+
+<script>
+  const obs = new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+  document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
