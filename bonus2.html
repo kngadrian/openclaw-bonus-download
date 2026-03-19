@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bonus 02 — AI Agency Starter Kit | OpenClaw Cracked</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #06060e;
+      --bg2: #0d0d1a;
+      --bg3: #12121f;
+      --card: #0f0f1e;
+      --border: #1e1e36;
+      --cyan: #00d4ff;
+      --purple: #8b5cf6;
+      --cyan-dim: rgba(0,212,255,0.15);
+      --purple-dim: rgba(139,92,246,0.15);
+      --text: #e2e8f0;
+      --muted: #7c85a0;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6,6,14,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--cyan);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.2s;
+    }
+    nav a:hover { opacity: 0.75; }
+
+    /* HERO */
+    .hero {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 64px 24px 40px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple-dim), var(--cyan-dim));
+      border: 1px solid var(--border);
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(26px, 5vw, 40px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, var(--white) 60%, var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subhead {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+
+    /* TOC */
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+    }
+
+    .toc h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .toc ol {
+      list-style: none;
+      counter-reset: toc;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toc li {
+      counter-increment: toc;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .toc li::before {
+      content: counter(toc, decimal-leading-zero);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--purple);
+      min-width: 24px;
+      padding-top: 2px;
+    }
+
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .toc a:hover { color: var(--cyan); }
+
+    /* MAIN CONTENT */
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    /* DOCUMENT CARD */
+    .doc-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .doc-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 24px 28px 20px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(135deg, var(--bg3), var(--card));
+    }
+
+    .doc-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      background: var(--purple-dim);
+      border: 1px solid rgba(139,92,246,0.25);
+      padding: 4px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .doc-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .doc-body {
+      padding: 28px;
+    }
+
+    /* SERVICE TIERS */
+    .tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .tier {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .tier-header {
+      padding: 16px 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    .tier-starter .tier-header { background: rgba(0,212,255,0.06); border-bottom: 1px solid rgba(0,212,255,0.15); }
+    .tier-growth .tier-header  { background: rgba(139,92,246,0.08); border-bottom: 1px solid rgba(139,92,246,0.2); }
+    .tier-scale .tier-header   { background: linear-gradient(135deg, rgba(139,92,246,0.12), rgba(0,212,255,0.08)); border-bottom: 1px solid rgba(139,92,246,0.25); }
+
+    .tier-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .tier-starter .tier-name { color: var(--cyan); }
+    .tier-growth .tier-name  { color: var(--purple); }
+    .tier-scale .tier-name   { background: linear-gradient(135deg, var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .tier-price {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .tier-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .tier-row { display: flex; flex-direction: column; gap: 4px; }
+    .tier-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .tier-value { font-size: 14px; color: var(--text); }
+    .tier-value ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+    .tier-value ul li::before { content: "→ "; color: var(--cyan); font-weight: 600; }
+    .tier-growth .tier-value ul li::before { color: var(--purple); }
+
+    /* PROPOSAL */
+    .proposal-section {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .proposal-section:last-child { margin-bottom: 0; }
+
+    .proposal-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: var(--cyan-dim);
+      border-bottom: 1px solid var(--border);
+      padding: 9px 16px;
+    }
+
+    .proposal-content {
+      padding: 16px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    .proposal-content .field {
+      color: var(--purple);
+      font-style: italic;
+    }
+
+    .proposal-content p + p { margin-top: 10px; }
+
+    /* COVER BLOCK */
+    .cover-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .cover-row { display: flex; flex-direction: column; gap: 2px; }
+    .cover-key { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .cover-val { font-size: 14px; color: var(--purple); font-style: italic; }
+
+    /* INVESTMENT TABLE */
+    .invest-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .invest-table th {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 8px 12px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .invest-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+      vertical-align: middle;
+    }
+    .invest-table tr:last-child td { border-bottom: none; }
+    .invest-table .tier-tag {
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .invest-table .c1 { color: var(--cyan); }
+    .invest-table .c2 { color: var(--purple); }
+    .invest-table .c3 { background: linear-gradient(135deg, var(--purple), var(--cyan)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .checkbox-empty {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid var(--border);
+      border-radius: 3px;
+    }
+
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .tl-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .tl-row:last-child { border-bottom: none; }
+    .tl-week {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--cyan);
+      min-width: 64px;
+      padding-top: 1px;
+      letter-spacing: 0.04em;
+    }
+    .tl-text { font-size: 14px; color: var(--text); }
+
+    /* NEXT STEPS */
+    .steps-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .steps-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .step-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--bg);
+      background: var(--cyan);
+      border-radius: 50%;
+      width: 22px; height: 22px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* NICHES */
+    .niche-list { display: flex; flex-direction: column; gap: 20px; }
+    .niche {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+    }
+    .niche-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .niche-why { font-size: 14px; color: var(--text); margin-bottom: 12px; line-height: 1.65; }
+    .niche-meta { display: flex; flex-direction: column; gap: 6px; }
+    .niche-row { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; }
+    .niche-key {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); min-width: 80px; padding-top: 2px;
+    }
+    .niche-val { color: var(--text); }
+    .niche-pos { color: var(--cyan); font-style: italic; font-weight: 500; }
+    .niche-pain { color: var(--purple); }
+    .niche-retainer { color: #4ade80; font-weight: 600; font-family: 'Space Grotesk', sans-serif; }
+
+    /* CHECKLIST */
+    .checklist-weeks { display: flex; flex-direction: column; gap: 24px; }
+    .checklist-week { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .cw-header {
+      padding: 14px 20px;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .cw-header span { color: var(--cyan); margin-right: 8px; }
+    .cw-tasks {
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .cw-task {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .cw-check {
+      display: inline-block;
+      width: 16px; height: 16px;
+      border: 2px solid var(--border);
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 3px;
+      background: var(--bg2);
+    }
+    .cw-message {
+      margin: 0 20px 20px;
+      padding: 14px 16px;
+      background: rgba(0,212,255,0.05);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 8px;
+    }
+    .cw-msg-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--cyan); margin-bottom: 8px;
+    }
+    .cw-msg-text { font-size: 13px; color: var(--text); line-height: 1.7; font-style: italic; }
+
+    /* SCRIPTS */
+    .scripts-list { display: flex; flex-direction: column; gap: 20px; }
+    .script-card {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .script-header {
+      padding: 12px 18px;
+      background: var(--bg3);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .script-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--purple);
+      background: var(--purple-dim);
+      border: 1px solid rgba(139,92,246,0.25);
+      padding: 3px 9px;
+      border-radius: 5px;
+    }
+    .script-type {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .script-body {
+      padding: 20px 18px;
+      font-size: 15px;
+      color: var(--text);
+      line-height: 1.8;
+      background: rgba(139,92,246,0.04);
+      font-style: italic;
+    }
+    .script-note {
+      padding: 0 18px 14px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 4px 0;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .doc-body { padding: 18px; }
+      .cover-block { grid-template-columns: 1fr; }
+      .tl-week { min-width: 52px; }
+      .niche-row { flex-direction: column; gap: 2px; }
+      .niche-key { min-width: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAV -->
+  <nav>
+    <a href="index.html">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M10 12L6 8l4-4" stroke="#00d4ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to All Bonuses
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="badge">Bonus 02 — $997 Value</div>
+    <h1>The First Client in 30 Days:<br/>AI Agency Starter Kit</h1>
+    <p class="subhead">Five documents. Everything you need to sell AI agent services — from pricing to signed contract.</p>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc">
+      <h2>What's Inside</h2>
+      <ol>
+        <li><a href="#doc1">AI Agency Service Menu — Three ready-to-pitch pricing tiers</a></li>
+        <li><a href="#doc2">The Proposal Template — Fill-in-the-blank client proposal</a></li>
+        <li><a href="#doc3">The 5 Best Niches Right Now — Where to aim first</a></li>
+        <li><a href="#doc4">Client Onboarding Checklist — 4-week execution framework</a></li>
+        <li><a href="#doc5">The 30-Second Positioning Script — Three versions, ready to use</a></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="content">
+
+    <!-- ===== DOCUMENT 1 ===== -->
+    <div class="doc-card" id="doc1">
+      <div class="doc-header">
+        <span class="doc-num">Doc 01</span>
+        <h2>AI Agency Service Menu</h2>
+      </div>
+      <div class="doc-body">
+        <div class="tiers">
+
+          <div class="tier tier-starter">
+            <div class="tier-header">
+              <span class="tier-name">Starter</span>
+              <span class="tier-price">$500 / month</span>
+            </div>
+            <div class="tier-body">
+              <div class="tier-row">
+                <span class="tier-label">Who it's for</span>
+                <span class="tier-value">Small local businesses or solo operators who want AI working for them but aren't ready to commit to a full buildout.</span>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Included</span>
+                <div class="tier-value"><ul>
+                  <li>1 AI agent workflow (lead follow-up, customer FAQ, appointment reminders, or social content)</li>
+                  <li>Weekly output review</li>
+                  <li>1 monthly optimization</li>
+                  <li>30-min check-in call</li>
+                  <li>Email support — 48h response</li>
+                </ul></div>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Month 1</span>
+                <span class="tier-value">Discovery session, workflow audit, first agent live by day 14, baseline by day 30.</span>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Ongoing</span>
+                <span class="tier-value">Continuous operation, monthly optimization, monthly performance summary.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tier tier-growth">
+            <div class="tier-header">
+              <span class="tier-name">Growth</span>
+              <span class="tier-price">$2,000 / month</span>
+            </div>
+            <div class="tier-body">
+              <div class="tier-row">
+                <span class="tier-label">Who it's for</span>
+                <span class="tier-value">Established businesses losing money to manual processes.</span>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Included</span>
+                <div class="tier-value"><ul>
+                  <li>Up to 3 workflows</li>
+                  <li>CRM/helpdesk integration</li>
+                  <li>Bi-weekly strategy calls (45 min)</li>
+                  <li>Monthly KPI report</li>
+                  <li>Priority 24h support</li>
+                  <li>2 optimizations/month</li>
+                </ul></div>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Month 1</span>
+                <span class="tier-value">All 3 workflows live by day 21. First results report day 30.</span>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Ongoing</span>
+                <span class="tier-value">Bi-weekly calls, monthly report.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="tier tier-scale">
+            <div class="tier-header">
+              <span class="tier-name">Scale</span>
+              <span class="tier-price">$5,000 / month</span>
+            </div>
+            <div class="tier-body">
+              <div class="tier-row">
+                <span class="tier-label">Who it's for</span>
+                <span class="tier-value">Companies that want a full AI operations layer without building it themselves.</span>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Included</span>
+                <div class="tier-value"><ul>
+                  <li>Up to 8 workflows across departments</li>
+                  <li>Full-stack integration (CRM / email / support / social / ops)</li>
+                  <li>Weekly 60-min strategy call</li>
+                  <li>Custom weekly KPI dashboard</li>
+                  <li>Dedicated Slack/Telegram channel</li>
+                  <li>Unlimited optimizations</li>
+                  <li>Monthly executive ROI summary</li>
+                </ul></div>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Month 1</span>
+                <span class="tier-value">Full audit + roadmap, first 3 workflows live day 14, all 8 by day 45.</span>
+              </div>
+              <div class="tier-row">
+                <span class="tier-label">Ongoing</span>
+                <span class="tier-value">Full AI ops layer, weekly calls, weekly dashboard, quarterly roadmap review.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DOCUMENT 2 ===== -->
+    <div class="doc-card" id="doc2">
+      <div class="doc-header">
+        <span class="doc-num">Doc 02</span>
+        <h2>The Proposal Template</h2>
+      </div>
+      <div class="doc-body">
+
+        <div class="proposal-section">
+          <div class="proposal-label">Cover Block</div>
+          <div class="proposal-content">
+            <div class="cover-block">
+              <div class="cover-row">
+                <span class="cover-key">Prepared for</span>
+                <span class="cover-val">[CLIENT NAME]</span>
+              </div>
+              <div class="cover-row">
+                <span class="cover-key">Prepared by</span>
+                <span class="cover-val">[YOUR NAME / AGENCY NAME]</span>
+              </div>
+              <div class="cover-row">
+                <span class="cover-key">Date</span>
+                <span class="cover-val">[DATE]</span>
+              </div>
+              <div class="cover-row">
+                <span class="cover-key">Proposal</span>
+                <span class="cover-val">AI Agent Services — [ENGAGEMENT TYPE]</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="proposal-section">
+          <div class="proposal-label">The Problem</div>
+          <div class="proposal-content">
+            <p><span class="field">[CLIENT NAME]</span> is currently <span class="field">[describe the manual process / bottleneck / cost]</span>. This is resulting in <span class="field">[describe the business impact — time lost, leads missed, costs incurred]</span>. Without a solution, <span class="field">[describe what continues to happen]</span>.</p>
+          </div>
+        </div>
+
+        <div class="proposal-section">
+          <div class="proposal-label">The Solution</div>
+          <div class="proposal-content">
+            <p>We deploy AI agents that handle <span class="field">[specific tasks]</span> autonomously, 24 hours a day. The agents integrate directly with your existing tools — <span class="field">[CRM / helpdesk / email platform]</span> — so there's no new software to learn. You get results without adding headcount.</p>
+          </div>
+        </div>
+
+        <div class="proposal-section">
+          <div class="proposal-label">What's Included</div>
+          <div class="proposal-content">
+            <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+              <li style="display:flex;gap:8px;"><span style="color:var(--cyan);font-weight:700;">01</span> <span><span class="field">[AI workflow name]</span> — automated end-to-end, no manual handling required</span></li>
+              <li style="display:flex;gap:8px;"><span style="color:var(--cyan);font-weight:700;">02</span> <span>Integration with <span class="field">[their CRM / tool]</span> — live data sync from day one</span></li>
+              <li style="display:flex;gap:8px;"><span style="color:var(--cyan);font-weight:700;">03</span> <span><span class="field">[Reporting cadence]</span> — <span class="field">[weekly / monthly]</span> KPI summary delivered to your inbox</span></li>
+              <li style="display:flex;gap:8px;"><span style="color:var(--cyan);font-weight:700;">04</span> <span>Ongoing optimization — <span class="field">[X]</span> rounds per month based on performance data</span></li>
+              <li style="display:flex;gap:8px;"><span style="color:var(--cyan);font-weight:700;">05</span> <span><span class="field">[Add a niche-specific deliverable here]</span></span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proposal-section">
+          <div class="proposal-label">Investment</div>
+          <div class="proposal-content" style="padding:0;">
+            <table class="invest-table">
+              <thead>
+                <tr>
+                  <th>Tier</th>
+                  <th>Monthly</th>
+                  <th>Workflows</th>
+                  <th>Support</th>
+                  <th style="text-align:center;">Selected</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="tier-tag c1">Starter</span></td>
+                  <td>$500</td>
+                  <td>1</td>
+                  <td>48h email</td>
+                  <td style="text-align:center;"><span class="checkbox-empty"></span></td>
+                </tr>
+                <tr>
+                  <td><span class="tier-tag c2">Growth</span></td>
+                  <td>$2,000</td>
+                  <td>Up to 3</td>
+                  <td>24h priority</td>
+                  <td style="text-align:center;"><span class="checkbox-empty"></span></td>
+                </tr>
+                <tr>
+                  <td><span class="tier-tag c3">Scale</span></td>
+                  <td>$5,000</td>
+                  <td>Up to 8</td>
+                  <td>Dedicated channel</td>
+                  <td style="text-align:center;"><span class="checkbox-empty"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="proposal-section">
+          <div class="proposal-label">Timeline</div>
+          <div class="proposal-content" style="padding:0 16px;">
+            <div class="timeline">
+              <div class="tl-row">
+                <span class="tl-week">Week 1</span>
+                <span class="tl-text">Discovery + access + tool audit</span>
+              </div>
+              <div class="tl-row">
+                <span class="tl-week">Week 2</span>
+                <span class="tl-text">Agent setup + initial workflows live</span>
+              </div>
+              <div class="tl-row">
+                <span class="tl-week">Week 3</span>
+                <span class="tl-text">First outputs reviewed + optimized</span>
+              </div>
+              <div class="tl-row">
+                <span class="tl-week">Week 4</span>
+                <span class="tl-text">Ongoing management begins + reporting cadence set</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="proposal-section">
+          <div class="proposal-label">Next Steps</div>
+          <div class="proposal-content">
+            <ul class="steps-list">
+              <li><span class="step-num">1</span><span><span class="field">[CLIENT NAME]</span> reviews and signs this proposal</span></li>
+              <li><span class="step-num">2</span><span>Onboarding call scheduled within 48 hours of signing</span></li>
+              <li><span class="step-num">3</span><span>Access credentials shared and setup begins</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="proposal-section">
+          <div class="proposal-label">Terms</div>
+          <div class="proposal-content">
+            <p>Services are billed monthly in advance. Scope is as defined in the "What's Included" section above. Changes to scope require written agreement from both parties.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== DOCUMENT 3 ===== -->
+    <div class="doc-card" id="doc3">
+      <div class="doc-header">
+        <span class="doc-num">Doc 03</span>
+        <h2>The 5 Best Niches Right Now</h2>
+      </div>
+      <div class="doc-body">
+        <div class="niche-list">
+
+          <div class="niche">
+            <div class="niche-name">01 — Local Service Businesses</div>
+            <p class="niche-why">Dentists, med spas, and law firms have high-ticket clients and repetitive intake workflows that drain staff time daily. They lack an internal tech team, which means whoever shows up with a working solution owns the account.</p>
+            <div class="niche-meta">
+              <div class="niche-row">
+                <span class="niche-key">Position</span>
+                <span class="niche-val niche-pos">"We automate your intake, follow-up, and reminders so your front desk can focus on patients, not paperwork."</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Lead with</span>
+                <span class="niche-val niche-pain">Missed appointments and no-shows costing $X/month.</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Retainer</span>
+                <span class="niche-val niche-retainer">$500 — $2,000/month</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="niche">
+            <div class="niche-name">02 — E-Commerce Brands</div>
+            <p class="niche-why">Support ticket volume, abandoned cart recovery, review management, and product description output all scale faster than headcount can. AI agents handle the volume at a fraction of the labor cost.</p>
+            <div class="niche-meta">
+              <div class="niche-row">
+                <span class="niche-key">Position</span>
+                <span class="niche-val niche-pos">"We handle customer support, cart recovery, and review generation so your team ships products instead of answering emails."</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Lead with</span>
+                <span class="niche-val niche-pain">Support tickets stacking up and 70% of abandoned carts going uncontacted.</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Retainer</span>
+                <span class="niche-val niche-retainer">$1,000 — $3,000/month</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="niche">
+            <div class="niche-name">03 — Real Estate Agents and Teams</div>
+            <p class="niche-why">Speed-to-lead is the #1 factor in real estate conversion, and most agents respond to new inquiries hours too late. An AI agent that follows up in 60 seconds turns cold leads warm before competitors even see the notification.</p>
+            <div class="niche-meta">
+              <div class="niche-row">
+                <span class="niche-key">Position</span>
+                <span class="niche-val niche-pos">"We make sure every lead you pay for gets followed up in under a minute, every time, without you touching your phone."</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Lead with</span>
+                <span class="niche-val niche-pain">Leads going cold because follow-up happens hours late, or not at all.</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Retainer</span>
+                <span class="niche-val niche-retainer">$500 — $2,000/month</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="niche">
+            <div class="niche-name">04 — Digital Marketing Agencies</div>
+            <p class="niche-why">Agencies already have the client relationships and the trust. White-labeling AI agent services lets them add a high-margin recurring revenue line without building anything themselves.</p>
+            <div class="niche-meta">
+              <div class="niche-row">
+                <span class="niche-key">Position</span>
+                <span class="niche-val niche-pos">"We build and manage AI agent services your agency sells to clients at 3-5x markup. You own the relationship. We do the work."</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Lead with</span>
+                <span class="niche-val niche-pain">Services ceiling — they can't grow revenue without growing headcount.</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Retainer</span>
+                <span class="niche-val niche-retainer">$2,000 — $5,000/month per agency</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="niche">
+            <div class="niche-name">05 — SaaS Companies</div>
+            <p class="niche-why">Onboarding drop-off and support ticket volume are profit killers at every SaaS company under $5M ARR. The churn signals are already in their behavior data — they just aren't reading them.</p>
+            <div class="niche-meta">
+              <div class="niche-row">
+                <span class="niche-key">Position</span>
+                <span class="niche-val niche-pos">"We reduce churn and support load by deploying AI agents that guide new users to activation and flag at-risk accounts before they cancel."</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Lead with</span>
+                <span class="niche-val niche-pain">Trial-to-paid conversion under 15% and support tickets growing faster than the team.</span>
+              </div>
+              <div class="niche-row">
+                <span class="niche-key">Retainer</span>
+                <span class="niche-val niche-retainer">$2,000 — $5,000/month</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DOCUMENT 4 ===== -->
+    <div class="doc-card" id="doc4">
+      <div class="doc-header">
+        <span class="doc-num">Doc 04</span>
+        <h2>Client Onboarding Checklist</h2>
+      </div>
+      <div class="doc-body">
+        <div class="checklist-weeks">
+
+          <!-- WEEK 1 -->
+          <div class="checklist-week">
+            <div class="cw-header"><span>Week 1</span> Discovery + Access</div>
+            <div class="cw-tasks">
+              <div class="cw-task"><span class="cw-check"></span><span>Send welcome email with onboarding overview and what to expect</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Schedule 60-min discovery call (use Calendly or direct link)</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Collect access credentials: CRM, email platform, helpdesk, social accounts</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Document current workflows — map the exact manual process you're replacing</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Identify #1 bottleneck to solve first (start narrow, win fast)</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Confirm tools, APIs, and integration points needed</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Send Week 1 summary and confirm build scope in writing</span></div>
+            </div>
+            <div class="cw-message">
+              <div class="cw-msg-label">Send to client — End of Week 1</div>
+              <div class="cw-msg-text">Hey [Name], great kickoff call. Here's a quick summary of what we're building: [1-2 sentence scope]. We have everything we need to start the build. You'll see the first workflow live by [date]. I'll check in midweek — let me know if anything comes up before then.</div>
+            </div>
+          </div>
+
+          <!-- WEEK 2 -->
+          <div class="checklist-week">
+            <div class="cw-header"><span>Week 2</span> Build + Launch</div>
+            <div class="cw-tasks">
+              <div class="cw-task"><span class="cw-check"></span><span>Build first workflow in your agent platform (n8n, Make, custom, etc.)</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Connect all integrations and test data flow end-to-end</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Run 10+ test cases covering edge cases (empty inputs, errors, timeouts)</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Soft launch: run live with limited volume (10-20% of real traffic)</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Monitor outputs daily — catch issues before they compound</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Document the workflow logic (client-facing one-pager)</span></div>
+            </div>
+            <div class="cw-message">
+              <div class="cw-msg-label">Send to client — End of Week 2</div>
+              <div class="cw-msg-text">Hey [Name], your first workflow is live. Here's what's running: [brief description]. We're at limited volume right now to make sure everything looks clean. Early output is attached. I'll have a full review ready by end of next week — if you spot anything in the meantime, hit me directly.</div>
+            </div>
+          </div>
+
+          <!-- WEEK 3 -->
+          <div class="checklist-week">
+            <div class="cw-header"><span>Week 3</span> Review + Optimize</div>
+            <div class="cw-tasks">
+              <div class="cw-task"><span class="cw-check"></span><span>Pull first week of live data — output volume, quality, error rate</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Identify top 3 improvement areas from real-world performance</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Tune prompts, rules, or logic based on findings</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Scale to full traffic volume once quality bar is confirmed</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Build the first KPI report (baseline metrics, what changed, what's next)</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Schedule Week 4 handoff call</span></div>
+            </div>
+            <div class="cw-message">
+              <div class="cw-msg-label">Send to client — End of Week 3</div>
+              <div class="cw-msg-text">Hey [Name], first optimization done. Here's what we saw in week one: [2-3 data points]. Here's what I changed and why: [brief]. We're now at full volume. KPI report attached. Our handoff call is [date/time] — we'll walk through this together and set the ongoing reporting rhythm.</div>
+            </div>
+          </div>
+
+          <!-- WEEK 4 -->
+          <div class="checklist-week">
+            <div class="cw-header"><span>Week 4</span> Handoff to Ongoing</div>
+            <div class="cw-tasks">
+              <div class="cw-task"><span class="cw-check"></span><span>Deliver Month 1 results summary (vs. baseline, ROI calculation if possible)</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Walk client through the workflow on a screen share — demystify what's running</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Confirm ongoing reporting cadence (weekly / monthly) and format</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Set next 30-day optimization priorities with the client</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Confirm recurring billing is active</span></div>
+              <div class="cw-task"><span class="cw-check"></span><span>Ask for a referral or testimonial (timing is perfect — momentum is high)</span></div>
+            </div>
+            <div class="cw-message">
+              <div class="cw-msg-label">Send to client — End of Week 4</div>
+              <div class="cw-msg-text">Hey [Name], that's Month 1 wrapped. Here's the summary: [headline result]. Your workflows are running clean and the next optimization cycle starts [date]. One ask — if you know anyone else who'd benefit from this, I'd appreciate the intro. Talk soon.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== DOCUMENT 5 ===== -->
+    <div class="doc-card" id="doc5">
+      <div class="doc-header">
+        <span class="doc-num">Doc 05</span>
+        <h2>The 30-Second Positioning Script</h2>
+      </div>
+      <div class="doc-body">
+        <div class="scripts-list">
+
+          <div class="script-card">
+            <div class="script-header">
+              <span class="script-num">01</span>
+              <span class="script-type">Networking Event — Casual</span>
+            </div>
+            <div class="script-body">
+              I help businesses automate the manual work that's eating their team's time — things like lead follow-up, customer support, and internal workflows. We basically set up AI agents that handle it all so the team can focus on the work that actually moves revenue. What do you do?
+            </div>
+            <div class="script-note">2 sentences. No jargon. Works at a dinner table or a conference floor.</div>
+          </div>
+
+          <div class="script-card">
+            <div class="script-header">
+              <span class="script-num">02</span>
+              <span class="script-type">Sales Call Opener — Formal</span>
+            </div>
+            <div class="script-body">
+              Thanks for taking the time. Quick context on what we do: we build and manage AI agent systems for businesses that are losing revenue to manual processes they haven't had time to fix. Most of our clients come to us because they're growing, but their operations aren't keeping pace. I read through your site before the call — it looks like you're doing [X]. I'm curious, where's the biggest bottleneck right now?
+            </div>
+            <div class="script-note">Establishes credibility, shows prep, and opens discovery without sounding scripted. Swap [X] for something real.</div>
+          </div>
+
+          <div class="script-card">
+            <div class="script-header">
+              <span class="script-num">03</span>
+              <span class="script-type">Cold DM — Written</span>
+            </div>
+            <div class="script-body">
+              Hey [Name] — I help [their niche] automate [specific manual task] so they can stop losing [time/leads/revenue] to it. Built something similar for [type of business]. Would a 15-minute call be worth it to show you what we built?
+            </div>
+            <div class="script-note">Under 50 words. One clear CTA. The specificity of "their niche" and "specific task" is what gets the reply — keep the brackets filled in before sending.</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
